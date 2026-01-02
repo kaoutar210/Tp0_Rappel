@@ -4,9 +4,9 @@ require_once('../classes/Technologie.php');
 
 $techno = new Technologie($pdo);
 
-// Vérification de l'id
+
 if (!isset($_GET['id']) || empty($_GET['id'])) {
-    header("Location: liste.php"); // redirige si pas d'ID
+    header("Location: liste.php"); 
     exit();
 }
 
@@ -17,10 +17,10 @@ if (!$data) {
     die("Technologie non trouvée.");
 }
 
-// Traitement du formulaire
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nom = $_POST['nom'] ?? '';
-    $description = $_POST['description'] ?? ''; // si tu as une colonne description
+    $description = $_POST['description'] ?? ''; 
 
     $techno->modifier($id, $nom, $description ?? null);
 
